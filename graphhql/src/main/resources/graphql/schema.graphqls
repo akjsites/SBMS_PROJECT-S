@@ -1,0 +1,22 @@
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  orders: [Order]
+}
+
+type Order {
+  id: ID!
+  product: String!
+  price: Float!
+}
+
+type Query {
+  users: [User]
+  user(id: ID!): User
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User
+  createOrder(userId: ID!, product: String!, price: Float!): Order
+}
